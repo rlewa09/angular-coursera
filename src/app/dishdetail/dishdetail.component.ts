@@ -45,7 +45,7 @@ export class DishdetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder,
-    @Inject('BasURL') public BaseURL) {
+    @Inject('BaseURL') public BaseURL) {
       this.createForm();
      }
 
@@ -54,7 +54,7 @@ export class DishdetailComponent implements OnInit {
       .subscribe(dishIds => this.dishIds = dishIds);
       
     this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(Number(params['id']))))
-      .subscribe(dish => {this.dish = dish; this.setPrevNext(dish.id)});
+      .subscribe(dish => {this.dish = dish; this.setPrevNext(dish.id); console.log(this.dish)});
   }
 
   createForm() {
